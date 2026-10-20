@@ -2,9 +2,9 @@ name: MLOps CI/CD Pipeline
 
 on:
   push:
-    branches: ["main"]
+    branches: ["feature/develop"]
   pull_request:
-    branches: ["main"]
+    branches: ["feature/develop"]
 
 jobs:
   test-and-lint:
