@@ -34,7 +34,7 @@ jobs:
         run: flake8 src/ tests/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
       - name: Run unit tests
-        run: pytest tests/ -v
+        run: python -m pytest tests/ -v
 
   train-and-build:
     needs: test-and-lint
