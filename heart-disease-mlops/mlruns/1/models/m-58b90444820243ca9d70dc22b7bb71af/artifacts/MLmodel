@@ -1,0 +1,23 @@
+artifact_path: file:C:/Users/Lenovo/Downloads/GITBITS/MlopsAssignment1/heart-disease-mlops/mlruns/1/models/m-58b90444820243ca9d70dc22b7bb71af/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.skops
+    predict_fn: predict
+    python_version: 3.13.1
+  sklearn:
+    code: null
+    pickled_model: model.skops
+    serialization_format: skops
+    sklearn_version: 1.9.1
+    skops_trusted_types: null
+mlflow_version: 3.17.1
+model_id: m-58b90444820243ca9d70dc22b7bb71af
+model_size_bytes: 96207
+model_uuid: m-58b90444820243ca9d70dc22b7bb71af
+prompts: null
+run_id: 3ef8137213bc4411aa013094cb80c001
+utc_time_created: '2026-10-20 04:54:34.931028'
