@@ -1,7 +1,8 @@
 # MLOps Assignment 1: Heart Disease Prediction
 
-**Student:** [Add your name]  
-**Repository:** [Add the public GitHub repository URL]  
+**Student:** Hussain Badri
+**ID:** 2025AF05063  
+**Repository:** https://github.com/2025af05063-a11y/MlopsAssignment1  
 **Report date:** 20 October 2026
 
 > Submission note: the architecture diagram is ready. Add the remaining screenshots, repository URL, and student name before submitting; do not submit with the checklist unresolved.
