@@ -12,6 +12,14 @@ spec:
     spec:
       containers:
       - name: api
-        image: heart-api:local
-        imagePullPolicy: Never
+        image: ghcr.io/2025af05063-a11y/heart-api:v3
+        imagePullPolicy: IfNotPresent
         ports: [{containerPort: 8000}]
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+      imagePullSecrets:
+      - name: ghcr-secret
