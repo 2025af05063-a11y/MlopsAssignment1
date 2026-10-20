@@ -36,7 +36,7 @@ flowchart LR
     TRAINCI --> GHCR
 ```
 
-The checked-in workflow currently publishes the `latest` tag, while the live Minikube deployment uses `v3`. Keep those tags aligned if the workflow is expected to deploy new builds automatically.
+The checked-in workflow publishes both `latest` and `v3`, matching the image tag used by the live Minikube deployment. The workflow builds and publishes images; it does not deploy them to Minikube.
 
 ## 3. Reproduction and Setup
 
@@ -102,7 +102,7 @@ The prediction endpoint constructs a named-column DataFrame to match the preproc
 
 The GitHub Actions workflow in `.github/workflows/ci-cd.yml` runs on pushes and pull requests. Its first job installs `flake8` and `pytest`, lints `src/`, and runs `tests/`. After that job succeeds, a second job installs project requirements, trains the model, logs in to GHCR using the workflow token, and builds and pushes the Docker image.
 
-The Dockerfile uses Python 3.11, installs pinned dependencies, copies the source and trained model, and starts Uvicorn on port 8000. The workflow currently tags its image as `ghcr.io/<owner>/heart-api:latest`; the live Kubernetes deployment is pinned to `ghcr.io/2025af05063-a11y/heart-api:v3`. Add a GitHub Actions screenshot showing the actual run status before submission; this report does not claim that a green run was verified.
+The Dockerfile uses Python 3.11, installs pinned dependencies, copies the source and trained model, and starts Uvicorn on port 8000. The workflow publishes `ghcr.io/<owner>/heart-api:latest` and `ghcr.io/<owner>/heart-api:v3`; the live Kubernetes deployment is pinned to `ghcr.io/2025af05063-a11y/heart-api:v3`. Add a GitHub Actions screenshot showing the actual run status before submission; this report does not claim that a green run was verified.
 
 ## 7. Kubernetes and Monitoring
 
