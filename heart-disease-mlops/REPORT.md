@@ -4,7 +4,7 @@
 **Repository:** [Add the public GitHub repository URL]  
 **Report date:** 20 October 2026
 
-> Submission note: the report content and architecture diagram are prepared, but screenshot files, the repository URL, and student name still need to be supplied. Do not submit with the remaining checklist unresolved.
+> Submission note: the architecture diagram is ready. Add the remaining screenshots, repository URL, and student name before submitting; do not submit with the checklist unresolved.
 
 ## 1. Project Overview
 
@@ -13,6 +13,8 @@ This project implements an end-to-end machine-learning workflow for the UCI Clev
 The API returns a model-estimated probability and a binary prediction. It is an educational demonstration, not a clinical diagnostic tool.
 
 ## 2. Architecture
+
+![Heart Disease MLOps architecture](screenshots/architecture_diagram.png)
 
 ```mermaid
 flowchart LR
@@ -126,11 +128,11 @@ No `screenshots/` directory or screenshot files were present when this report wa
 
 | File | Evidence to capture | Status |
 |---|---|---|
-| `screenshots/architecture_diagram.png` | Export the Mermaid architecture diagram above | Pending |
+| `screenshots/architecture_diagram.png` | Architecture diagram included in this repository | Ready |
 | `screenshots/mlflow.png` | MLflow UI with the latest finished run for both models | Pending |
-| `screenshots/github_actions.png` | Successful GitHub Actions run | Pending |
+| `screenshots/github_actions.png` | Successful GitHub Actions run | Ready |
 | `screenshots/kubectl_pods.png` | `minikube kubectl -- get pods` showing the API and monitoring pods | Pending |
-| `screenshots/grafana.png` | Grafana dashboard with API request and latency panels | Pending |
-| `screenshots/curl_output.png` | Successful prediction response | Pending |
+| `screenshots/grafana.png` | Grafana dashboard with API request and latency panels | Ready |
+| `screenshots/curl_output.png` | Successful prediction response | Ready |
 
 Record a 3–5 minute walkthrough showing the architecture and repository, MLflow comparison, successful CI run, API response, four Kubernetes replicas, and Grafana metrics. Export this Markdown report to PDF or DOCX and confirm it is no more than 10 pages. Fill in the student name and repository URL, add the evidence files, and verify the Prometheus target before final submission.
