@@ -5,7 +5,7 @@
 **Repository:** https://github.com/2025af05063-a11y/MlopsAssignment1  
 **Report date:** 20 October 2026
 
-> Submission note: the architecture diagram is ready. Add the remaining screenshots, repository URL, and student name before submitting; do not submit with the checklist unresolved.
+> Submission note: the evidence screenshots, student name, and repository URL are included. Verify the Prometheus target and final CI status, then export and review the PDF and video before submission.
 
 ## 1. Project Overview
 
@@ -107,7 +107,7 @@ The prediction endpoint constructs a named-column DataFrame to match the preproc
 
 The GitHub Actions workflow in `.github/workflows/ci-cd.yml` runs on pushes and pull requests. Its first job installs `flake8` and `pytest`, lints `src/`, and runs `tests/`. After that job succeeds, a second job installs project requirements, trains the model, logs in to GHCR using the workflow token, and builds and pushes the Docker image.
 
-The Dockerfile uses Python 3.11, installs pinned dependencies, copies the source and trained model, and starts Uvicorn on port 8000. The workflow publishes `ghcr.io/<owner>/heart-api:latest` and `ghcr.io/<owner>/heart-api:v3`; the live Kubernetes deployment is pinned to `ghcr.io/2025af05063-a11y/heart-api:v3`. Add a GitHub Actions screenshot showing the actual run status before submission; this report does not claim that a green run was verified.
+The Dockerfile uses Python 3.11, installs pinned dependencies, copies the source and trained model, and starts Uvicorn on port 8000. The workflow publishes `ghcr.io/<owner>/heart-api:latest` and `ghcr.io/<owner>/heart-api:v3`; the live Kubernetes deployment is pinned to `ghcr.io/2025af05063-a11y/heart-api:v3`. The evidence folder includes a successful GitHub Actions run; rerun the workflow after any further code or workflow changes.
 
 ## 7. Kubernetes and Monitoring
 
@@ -134,7 +134,7 @@ The `screenshots/` directory contains the architecture, MLflow, CI, Grafana, and
 | `screenshots/architecture_diagram.png` | Architecture diagram included in this repository | Ready |
 | `screenshots/mlflow.png` | MLflow UI with the latest finished run for both models | Ready |
 | `screenshots/github_actions.png` | Successful GitHub Actions run | Ready |
-| `screenshots/kubectl_pods.png` | `minikube kubectl -- get pods` showing the API and monitoring pods | Ready |
+| `screenshots/kubectl get pods.png` | `minikube kubectl -- get pods` showing the API and monitoring pods | Ready |
 | `screenshots/grafana.png` | Grafana dashboard with API request and latency panels | Ready |
 | `screenshots/curl_output.png` | Successful prediction response | Ready |
 
