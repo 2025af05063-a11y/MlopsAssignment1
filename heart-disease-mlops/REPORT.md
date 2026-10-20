@@ -92,6 +92,8 @@ These are the latest successful runs recorded in the local MLflow database. Trai
 
 The experiment is named `heart-disease-classification`. MLflow records the model type, accuracy, precision, recall, ROC-AUC, and serialized model for each run. The notebook also creates class-balance, correlation, and numeric-feature distribution plots for logging as artifacts.
 
+![MLflow experiment runs](screenshots/mlflow.png)
+
 `src/api.py` loads `best_model.joblib` and provides:
 
 - `POST /predict` for a patient feature set
@@ -124,14 +126,14 @@ The workspace-level Prometheus configuration defines a `heart-api` scrape job fo
 
 ## 8. Submission Evidence and Recording
 
-No `screenshots/` directory or screenshot files were present when this report was prepared. Add the following evidence before exporting the final PDF:
+The `screenshots/` directory contains the architecture, MLflow, CI, Grafana, and prediction evidence. Capture `kubectl_pods.png` before exporting the final PDF.
 
 | File | Evidence to capture | Status |
 |---|---|---|
 | `screenshots/architecture_diagram.png` | Architecture diagram included in this repository | Ready |
-| `screenshots/mlflow.png` | MLflow UI with the latest finished run for both models | Pending |
+| `screenshots/mlflow.png` | MLflow UI with the latest finished run for both models | Ready |
 | `screenshots/github_actions.png` | Successful GitHub Actions run | Ready |
-| `screenshots/kubectl_pods.png` | `minikube kubectl -- get pods` showing the API and monitoring pods | Pending |
+| `screenshots/kubectl_pods.png` | `minikube kubectl -- get pods` showing the API and monitoring pods | Ready |
 | `screenshots/grafana.png` | Grafana dashboard with API request and latency panels | Ready |
 | `screenshots/curl_output.png` | Successful prediction response | Ready |
 
