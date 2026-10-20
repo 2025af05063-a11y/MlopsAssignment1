@@ -1,0 +1,13 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.git/
+.github/
+notebooks/
+tests/
+data/
+mlruns/
+.pytest_cache/
+*.md

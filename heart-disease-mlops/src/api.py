@@ -1,4 +1,5 @@
 import joblib, time, logging
+import pandas as pd
 from fastapi import FastAPI
 from pydantic import BaseModel
 from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
@@ -20,9 +21,7 @@ class Patient(BaseModel):
 def predict(p: Patient):
     REQUEST_COUNT.labels(endpoint="/predict").inc()
     start = time.time()
-    features = [[p.age, p.sex, p.cp, p.trestbps, p.chol, p.fbs,
-                 p.restecg, p.thalach, p.exang, p.oldpeak,
-                 p.slope, p.ca, p.thal]]
+    features = pd.DataFrame([p.dict()])
     proba = model.predict_proba(features)[0][1]
     PREDICTION_LATENCY.observe(time.time() - start)
     return {"heart_disease_risk": float(proba),

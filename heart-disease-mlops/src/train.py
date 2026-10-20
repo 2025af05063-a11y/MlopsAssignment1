@@ -4,7 +4,12 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score, train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, roc_auc_score
-from src.preprocess import load_heart_data, build_preprocessor
+from sklearn.pipeline import Pipeline
+
+if __package__:
+    from .preprocess import load_heart_data, build_preprocessor
+else:
+    from preprocess import load_heart_data, build_preprocessor
 
 mlflow.set_experiment("heart-disease-classification")
 
@@ -35,11 +40,15 @@ for name, clf in models.items():
         }
         mlflow.log_param("model_type", name)
         mlflow.log_metrics(metrics)
-        mlflow.sklearn.log_model(pipeline, "model")
+        mlflow.sklearn.log_model(
+            pipeline,
+            "model",
+            skops_trusted_types=["sklearn.tree._tree.Tree"],
+        )
         
         # Log EDA plots as artifacts
         for plot in ["class_balance.png","correlation_heatmap.png","histograms.png"]:
-            mlflow.log_artifact(f"notebooks/{plot}")
+            mlflow.log_artifact(f"notebooks/notebooks/plots/{plot}")
         
         if metrics["roc_auc"] > best_auc:
             best_auc, best_model = metrics["roc_auc"], pipeline
